@@ -101,14 +101,18 @@ textarea:focus-visible {
 
 .brand {
   color: var(--ink);
+  flex: 0 0 auto;
   font-weight: 800;
   text-decoration: none;
 }
 
 .nav-links {
   display: flex;
+  flex: 1 1 auto;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 8px 14px;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .nav-links a {
@@ -119,6 +123,20 @@ textarea:focus-visible {
 
 .nav-links a:hover {
   color: var(--ink);
+}
+
+@media (max-width: 1080px) {
+  .nav {
+    gap: 18px;
+  }
+
+  .nav-links {
+    gap: 8px 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
 }
 
 .section {
@@ -679,7 +697,18 @@ p {
 }
 
 @media (max-width: 860px) {
-  .nav,
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   .footer-grid {
     align-items: flex-start;
     gap: 12px;

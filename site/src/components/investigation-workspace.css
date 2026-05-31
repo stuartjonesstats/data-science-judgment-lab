@@ -3835,6 +3835,17 @@
   width: 100%;
 }
 
+.clip-audio-fallback {
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.clip-audio-fallback:hover {
+  color: var(--ink);
+}
+
 .transcript-disclosure {
   border-top: 1px solid var(--line);
   margin-top: 4px;

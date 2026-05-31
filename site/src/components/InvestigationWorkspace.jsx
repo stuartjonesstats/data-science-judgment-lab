@@ -46,6 +46,14 @@ const typeIcons = {
   visualization: BarChart3,
 };
 
+function mediaTypeFor(src = '') {
+  const lowerSrc = src.toLowerCase();
+  if (lowerSrc.endsWith('.wav')) return 'audio/wav';
+  if (lowerSrc.endsWith('.mp3')) return 'audio/mpeg';
+  if (lowerSrc.endsWith('.m4a') || lowerSrc.endsWith('.mp4')) return 'audio/mp4';
+  return undefined;
+}
+
 const confidenceOptions = [
   { id: 'low', label: 'Low', note: 'Plausible, but I am not certain' },
   { id: 'medium', label: 'Medium', note: 'Supported, with caveats' },
@@ -2332,6 +2340,7 @@ function SourceAudioClip({ item, compact = false }) {
   const hasVideo = Boolean(asset.videoSrc);
   const hasAudio = Boolean(asset.audioSrc);
   const hasNote = asset.type === 'note';
+  const audioUrl = hasAudio ? withBase(asset.audioSrc) : '';
   const className = [
     'source-clip',
     compact ? 'source-clip--compact' : '',
@@ -2352,9 +2361,13 @@ function SourceAudioClip({ item, compact = false }) {
       ) : hasAudio ? (
         <div className="clip-audio-player">
           <Volume2 size={compact ? 28 : 34} aria-hidden="true" />
-          <audio controls preload="metadata" src={withBase(asset.audioSrc)}>
+          <audio controls preload="auto">
+            <source src={audioUrl} type={mediaTypeFor(asset.audioSrc)} />
             Your browser does not support the audio element.
           </audio>
+          <a className="clip-audio-fallback" href={audioUrl} target="_blank" rel="noreferrer">
+            Open audio file
+          </a>
         </div>
       ) : hasNote ? (
         <div className="clip-note-card">
