@@ -1132,7 +1132,7 @@ function EvidenceMedia({ item }) {
     return <SourceAudioClip item={item} />;
   }
   if (item.type === 'chart') {
-    return <GenericChartPanel item={item} />;
+    throw new Error(`Chart evidence ${item.id} is missing a supported render component.`);
   }
   if (item.type === 'log') {
     return <EventLog />;
@@ -2405,26 +2405,6 @@ function SourceAudioClip({ item, compact = false }) {
           <p>{item.transcript}</p>
         </details>
       </div>
-    </div>
-  );
-}
-
-function GenericChartPanel({ item }) {
-  return (
-    <div className="generic-chart-panel" aria-label={item.title}>
-      <div className="generic-chart-panel__header">
-        <span>{item.title}</span>
-        <strong>{item.reliability || 'context'}</strong>
-      </div>
-      <p>{item.body}</p>
-      {item.callout ? <small>{item.callout}</small> : null}
-      {item.tags?.length ? (
-        <div className="generic-chart-panel__tags" aria-label="Artifact tags">
-          {item.tags.slice(0, 4).map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-      ) : null}
     </div>
   );
 }

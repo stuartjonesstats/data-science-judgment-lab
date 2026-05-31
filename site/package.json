@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
-    "build": "astro build",
+    "validate:cases": "node scripts/validate-cases.mjs",
+    "build": "npm run validate:cases && astro build",
     "preview": "astro preview --host 127.0.0.1"
   },
   "keywords": [],

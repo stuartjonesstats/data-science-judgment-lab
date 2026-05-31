@@ -731,7 +731,6 @@
 .retraining-diff,
 .forecast-fan-panel,
 .scenario-range-panel,
-.generic-chart-panel,
 .trend-signal-panel,
 .sample-composition-panel,
 .missingness-heatmap-panel,
@@ -807,7 +806,6 @@
 .threshold-tradeoff-panel,
 .metric-swap-panel,
 .scenario-range-panel,
-.generic-chart-panel,
 .trend-signal-panel,
 .sample-composition-panel,
 .missingness-heatmap-panel,
@@ -1311,7 +1309,6 @@
 
 .forecast-fan-panel__header,
 .scenario-range-panel__header,
-.generic-chart-panel__header,
 .trend-signal-panel__header {
   align-items: center;
   border-bottom: 1px solid var(--line);
@@ -1323,7 +1320,6 @@
 
 .forecast-fan-panel__header span,
 .scenario-range-panel__header span,
-.generic-chart-panel__header span,
 .trend-signal-panel__header span {
   color: var(--muted);
   font-weight: 800;
@@ -1331,7 +1327,6 @@
 
 .forecast-fan-panel__header strong,
 .scenario-range-panel__header strong,
-.generic-chart-panel__header strong,
 .trend-signal-panel__header strong {
   color: var(--amber);
   font-size: 0.86rem;
@@ -1517,38 +1512,6 @@
 .scenario-marker-key--high b,
 .scenario-card--high strong {
   color: var(--red);
-}
-
-.generic-chart-panel {
-  display: grid;
-  gap: 12px;
-}
-
-.generic-chart-panel p,
-.generic-chart-panel small {
-  color: var(--muted);
-  margin: 0;
-}
-
-.generic-chart-panel small {
-  border-left: 3px solid var(--amber);
-  padding-left: 10px;
-}
-
-.generic-chart-panel__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.generic-chart-panel__tags span {
-  background: rgba(98, 179, 202, 0.1);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  color: var(--blue);
-  font-size: 0.76rem;
-  font-weight: 850;
-  padding: 4px 7px;
 }
 
 .trend-signal-panel {
