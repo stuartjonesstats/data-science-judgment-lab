@@ -1086,6 +1086,9 @@ function EvidenceMedia({ item }) {
   if (item.render === 'sample-composition-panel') {
     return <SampleCompositionPanel item={item} />;
   }
+  if (item.render === 'trend-signal-panel') {
+    return <TrendSignalPanel item={item} />;
+  }
   if (item.render === 'missingness-heatmap-panel') {
     return <MissingnessHeatmapPanel item={item} />;
   }
@@ -1122,11 +1125,14 @@ function EvidenceMedia({ item }) {
   if (item.render === 'prompt-risk-panel') {
     return <PromptRiskPanel item={item} />;
   }
+  if (item.render === 'mini-dashboard') {
+    return <MiniDashboard />;
+  }
   if (item.type === 'audio') {
     return <SourceAudioClip item={item} />;
   }
   if (item.type === 'chart') {
-    return <MiniDashboard />;
+    return <GenericChartPanel item={item} />;
   }
   if (item.type === 'log') {
     return <EventLog />;
@@ -1483,12 +1489,18 @@ function ScenarioRangePanel({ item }) {
         {item.markers.map((marker) => (
           <span
             className={`scenario-marker scenario-marker--${marker.kind}`}
+            aria-label={`${marker.label}: ${marker.value}`}
             key={marker.label}
             style={{ left: marker.left }}
-          >
+          />
+        ))}
+      </div>
+      <div className="scenario-marker-legend" aria-label="Scenario values">
+        {item.markers.map((marker) => (
+          <div className={`scenario-marker-key scenario-marker-key--${marker.kind}`} key={marker.label}>
             <b>{marker.value}</b>
-            <em>{marker.label}</em>
-          </span>
+            <span>{marker.label}</span>
+          </div>
         ))}
       </div>
       <div className="scenario-cards">
@@ -2393,6 +2405,52 @@ function SourceAudioClip({ item, compact = false }) {
           <p>{item.transcript}</p>
         </details>
       </div>
+    </div>
+  );
+}
+
+function GenericChartPanel({ item }) {
+  return (
+    <div className="generic-chart-panel" aria-label={item.title}>
+      <div className="generic-chart-panel__header">
+        <span>{item.title}</span>
+        <strong>{item.reliability || 'context'}</strong>
+      </div>
+      <p>{item.body}</p>
+      {item.callout ? <small>{item.callout}</small> : null}
+      {item.tags?.length ? (
+        <div className="generic-chart-panel__tags" aria-label="Artifact tags">
+          {item.tags.slice(0, 4).map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function TrendSignalPanel({ item }) {
+  return (
+    <div className="trend-signal-panel" aria-label={item.title}>
+      <div className="trend-signal-panel__header">
+        <span>{item.panelTitle || item.title}</span>
+        <strong>{item.panelBadge || 'context'}</strong>
+      </div>
+      <div className="trend-signal-panel__rows">
+        {item.signals.map((signal) => (
+          <div className={`trend-signal-row trend-signal-row--${signal.kind}`} key={signal.label}>
+            <div>
+              <span>{signal.label}</span>
+              <strong>{signal.value}</strong>
+            </div>
+            <i aria-hidden="true">
+              <b style={{ width: signal.width }} />
+            </i>
+            <em>{signal.note}</em>
+          </div>
+        ))}
+      </div>
+      <p>{item.body}</p>
     </div>
   );
 }

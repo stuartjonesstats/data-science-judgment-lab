@@ -87,6 +87,7 @@ export const CASE_DEFINITIONS = {
       {
         id: 'ev-001',
         type: 'chart',
+        render: 'mini-dashboard',
         title: 'Executive dashboard capture',
         sourceLabel: 'Analytics dashboard, Monday 9:12 AM',
         reliability: 'medium',
@@ -4053,6 +4054,7 @@ export const CASE_DEFINITIONS = {
       {
         id: 'ev-1112',
         type: 'chart',
+        render: 'trend-signal-panel',
         title: 'Support cost trend',
         sourceLabel: 'Finance dashboard',
         reliability: 'medium',
@@ -4060,6 +4062,31 @@ export const CASE_DEFINITIONS = {
         tags: ['cost', 'context', 'red herring'],
         body:
           'Routine billing call volume fell 9 percent after the portal refresh, but exception calls became longer. Cost pressure is real, yet it does not determine whether the survey represents all customers.',
+        panelTitle: 'Support operations after portal refresh',
+        panelBadge: 'context only',
+        signals: [
+          {
+            label: 'Routine billing calls',
+            value: '-9%',
+            width: '44%',
+            kind: 'good',
+            note: 'self-service likely absorbed simple contacts',
+          },
+          {
+            label: 'Exception calls',
+            value: 'longer',
+            width: '68%',
+            kind: 'bad',
+            note: 'complex cases still need human support',
+          },
+          {
+            label: 'Survey inference',
+            value: 'not answered',
+            width: '54%',
+            kind: 'neutral',
+            note: 'cost pressure does not validate the sample',
+          },
+        ],
       },
     ],
     hypotheses: [

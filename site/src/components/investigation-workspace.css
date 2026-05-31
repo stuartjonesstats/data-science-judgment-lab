@@ -731,6 +731,8 @@
 .retraining-diff,
 .forecast-fan-panel,
 .scenario-range-panel,
+.generic-chart-panel,
+.trend-signal-panel,
 .sample-composition-panel,
 .missingness-heatmap-panel,
 .cropped-chart-panel,
@@ -805,6 +807,8 @@
 .threshold-tradeoff-panel,
 .metric-swap-panel,
 .scenario-range-panel,
+.generic-chart-panel,
+.trend-signal-panel,
 .sample-composition-panel,
 .missingness-heatmap-panel,
 .cropped-chart-panel,
@@ -1306,7 +1310,9 @@
 }
 
 .forecast-fan-panel__header,
-.scenario-range-panel__header {
+.scenario-range-panel__header,
+.generic-chart-panel__header,
+.trend-signal-panel__header {
   align-items: center;
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -1316,13 +1322,17 @@
 }
 
 .forecast-fan-panel__header span,
-.scenario-range-panel__header span {
+.scenario-range-panel__header span,
+.generic-chart-panel__header span,
+.trend-signal-panel__header span {
   color: var(--muted);
   font-weight: 800;
 }
 
 .forecast-fan-panel__header strong,
-.scenario-range-panel__header strong {
+.scenario-range-panel__header strong,
+.generic-chart-panel__header strong,
+.trend-signal-panel__header strong {
   color: var(--amber);
   font-size: 0.86rem;
   text-transform: uppercase;
@@ -1432,7 +1442,8 @@
 }
 
 .scenario-track {
-  min-height: 86px;
+  margin: 16px 0 10px;
+  min-height: 44px;
   position: relative;
 }
 
@@ -1443,52 +1454,173 @@
   left: 0;
   position: absolute;
   right: 0;
-  top: 36px;
+  top: 18px;
 }
 
 .scenario-marker {
   color: var(--ink);
-  display: grid;
-  gap: 2px;
-  justify-items: center;
-  min-width: 68px;
-  position: absolute;
-  top: 10px;
-  transform: translateX(-50%);
-}
-
-.scenario-marker::after {
   background: currentColor;
   border: 2px solid #080b0d;
   border-radius: 999px;
-  content: "";
-  height: 14px;
-  width: 14px;
+  height: 18px;
+  position: absolute;
+  top: 13px;
+  transform: translateX(-50%);
+  width: 18px;
+  z-index: 2;
 }
 
-.scenario-marker b {
+.scenario-marker-legend {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.scenario-marker-key {
+  background: rgba(238, 232, 215, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding: 8px;
+}
+
+.scenario-marker-key b {
   font-size: 0.94rem;
+  line-height: 1;
 }
 
-.scenario-marker em {
+.scenario-marker-key span {
   color: var(--muted);
   font-size: 0.7rem;
-  font-style: normal;
-  text-align: center;
+  font-weight: 800;
+  line-height: 1.15;
+  min-width: 0;
+  text-transform: uppercase;
 }
 
 .scenario-marker--low,
+.scenario-marker-key--low b,
 .scenario-card--low strong {
   color: var(--green);
 }
 
 .scenario-marker--base,
+.scenario-marker-key--base b,
 .scenario-card--base strong {
   color: var(--amber);
 }
 
 .scenario-marker--high,
+.scenario-marker-key--high b,
 .scenario-card--high strong {
+  color: var(--red);
+}
+
+.generic-chart-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.generic-chart-panel p,
+.generic-chart-panel small {
+  color: var(--muted);
+  margin: 0;
+}
+
+.generic-chart-panel small {
+  border-left: 3px solid var(--amber);
+  padding-left: 10px;
+}
+
+.generic-chart-panel__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.generic-chart-panel__tags span {
+  background: rgba(98, 179, 202, 0.1);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 4px 7px;
+}
+
+.trend-signal-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.trend-signal-panel__rows {
+  display: grid;
+  gap: 10px;
+}
+
+.trend-signal-row {
+  background: rgba(238, 232, 215, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+}
+
+.trend-signal-row div {
+  align-items: baseline;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.trend-signal-row span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.trend-signal-row strong {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.trend-signal-row i {
+  background: rgba(238, 232, 215, 0.08);
+  border-radius: 999px;
+  display: block;
+  height: 9px;
+  overflow: hidden;
+}
+
+.trend-signal-row i b {
+  background: currentColor;
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.trend-signal-row em,
+.trend-signal-panel p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: normal;
+  margin: 0;
+}
+
+.trend-signal-row--good {
+  color: var(--green);
+}
+
+.trend-signal-row--neutral {
+  color: var(--amber);
+}
+
+.trend-signal-row--bad {
   color: var(--red);
 }
 
@@ -4229,6 +4361,7 @@
   .model-metrics,
   .outcome-strip,
   .retraining-diff,
+  .scenario-marker-legend,
   .scenario-cards,
   .segment-row {
     grid-template-columns: 1fr;
