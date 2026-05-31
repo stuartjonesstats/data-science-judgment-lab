@@ -54,6 +54,14 @@ The current deployment target is the custom domain `https://dsjlab.org`. The
 workflow sets `PUBLIC_SITE_URL=https://dsjlab.org`, and `site/public/CNAME`
 contains the same domain so the Pages artifact carries the custom-domain marker.
 
+## Analytics
+
+Google Analytics is optional and controlled by the public build-time environment
+variable `PUBLIC_GA_MEASUREMENT_ID`. In GitHub, set the repository variable
+`GA_MEASUREMENT_ID` to the GA4 web stream Measurement ID for `dsjlab.org`. If the
+variable is absent or not shaped like `G-XXXXXXXXXX`, the analytics tag is not
+rendered.
+
 ## Documentation
 
 - [Product Blueprint](docs/01-product-blueprint.md)
