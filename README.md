@@ -62,6 +62,18 @@ variable `PUBLIC_GA_MEASUREMENT_ID`. In GitHub, set the repository variable
 variable is absent or not shaped like `G-XXXXXXXXXX`, the analytics tag is not
 rendered.
 
+## License
+
+Data Science Judgment Lab uses a split open license:
+
+- site source code, scripts, styles, scoring logic, and interactive components
+  are licensed under MIT
+- curriculum content, case content, evidence packets, replay text, instructor
+  notes, documentation, learner-facing text, audio scripts, and research notes
+  are licensed under CC BY-NC 4.0
+
+See `LICENSE.md`, `LICENSE-CODE`, and `LICENSE-CONTENT.md` for the full terms.
+
 ## Documentation
 
 - [Product Blueprint](docs/01-product-blueprint.md)

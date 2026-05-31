@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths.js';
 ---
 
 <BaseLayout title="About | Data Science Judgment Lab">
@@ -41,6 +42,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         discussion, professional development, or portfolio reflection, but it is
         not proctored, identity verified, externally auditable, or a formal
         certification of data science competence.
+      </p>
+
+      <h2>Open Source</h2>
+      <p>
+        The lab is public by design. The source code is available under the MIT
+        License so instructors and developers can inspect, fork, and adapt the
+        site infrastructure. The case materials and curriculum are licensed
+        separately under CC BY-NC 4.0, which permits noncommercial educational
+        reuse and adaptation with attribution.
+      </p>
+      <p>
+        See the
+        <a href={withBase('/license/')}>license page</a>
+        or the
+        <a href="https://github.com/stuartjonesstats/data-science-judgment-lab">GitHub repository</a>
+        for the full source and license files.
       </p>
     </div>
   </section>

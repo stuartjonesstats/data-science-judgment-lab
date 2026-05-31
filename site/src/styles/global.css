@@ -646,10 +646,25 @@ p {
 }
 
 .footer-grid {
-  align-items: center;
-  display: flex;
+  align-items: start;
+  display: grid;
   gap: 20px;
-  justify-content: space-between;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.footer-meta {
+  display: grid;
+  gap: 6px;
+  max-width: 720px;
+}
+
+.footer-meta p {
+  margin: 0;
+}
+
+.footer-meta p + p {
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .footer-links {
@@ -667,8 +682,8 @@ p {
   .nav,
   .footer-grid {
     align-items: flex-start;
-    flex-direction: column;
     gap: 12px;
+    grid-template-columns: 1fr;
     padding: 12px 0;
   }
 

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="License | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Open Source</p>
+      <h1>Free to inspect, adapt, and teach from.</h1>
+      <p class="lede">
+        Data Science Judgment Lab is an open-source educational project. The
+        code is reusable under MIT, and the case materials are available for
+        noncommercial educational use with attribution.
+      </p>
+
+      <h2>Split License</h2>
+      <table class="evidence-table">
+        <thead>
+          <tr>
+            <th>Project Part</th>
+            <th>License</th>
+            <th>What That Means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Site code, styles, scripts, scoring logic, and components</td>
+            <td>MIT</td>
+            <td>May be reused, modified, forked, and redistributed with the license notice.</td>
+          </tr>
+          <tr>
+            <td>Cases, evidence packets, replays, instructor notes, and written curriculum</td>
+            <td>CC BY-NC 4.0</td>
+            <td>May be reused and adapted for noncommercial purposes with attribution.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Why This Structure</h2>
+      <p>
+        The lab is built around transparent pedagogy: learners and instructors
+        should be able to inspect how the cases, scoring, and calibration record
+        work. At the same time, the case library represents substantial
+        curriculum design work, so commercial reuse of the case content requires
+        separate permission.
+      </p>
+
+      <h2>Source</h2>
+      <p>
+        The source repository is available on GitHub:
+        <a href="https://github.com/stuartjonesstats/data-science-judgment-lab">Data Science Judgment Lab</a>.
+      </p>
+      <p>
+        For full legal terms, see the repository license files:
+        <a href="https://github.com/stuartjonesstats/data-science-judgment-lab/blob/main/LICENSE.md">license summary</a>,
+        <a href="https://github.com/stuartjonesstats/data-science-judgment-lab/blob/main/LICENSE-CODE">MIT code license</a>,
+        and
+        <a href="https://github.com/stuartjonesstats/data-science-judgment-lab/blob/main/LICENSE-CONTENT.md">content license notice</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
