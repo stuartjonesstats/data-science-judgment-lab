@@ -2759,7 +2759,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'error-taxonomy',
     judgmentType: 'multi',
     summary:
-      'A benefits agency chatbot handles routine questions well, but evaluation logs show confident wrong answers on high-stakes claim situations.',
+      'A benefits agency chatbot demos smoothly before a filing surge, and the launch packet must decide what evidence is enough for live claimant use.',
     skills: ['AI evaluation', 'severity scoring', 'launch readiness'],
     concepts: ['evaluation sets', 'hallucination risk', 'escalation policy', 'retrieval coverage'],
     mediaTypes: ['transcript', 'rubric', 'memo', 'audio', 'table'],
@@ -3461,7 +3461,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'metric-critique',
     judgmentType: 'multi',
     summary:
-      'The benefits modernization program changes its executive metric, and the new dashboard may reward faster closure while hiding reopened cases and payment delay.',
+      'A modernization dashboard gets a cleaner headline metric, and leadership wants to use it as proof that service is improving.',
     skills: ['metric design', 'incentive reasoning', 'executive communication'],
     concepts: ['Goodhart-style behavior', 'leading indicators', 'metric definitions', 'balanced scorecards'],
     mediaTypes: ['table', 'memo', 'chart', 'audio'],
@@ -3826,7 +3826,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'sample-composition-check',
     judgmentType: 'multi',
     summary:
-      'A customer research survey appears decisive until response patterns reveal who never had a real chance to answer.',
+      "A customer survey produces a clean majority for a support redesign, and tomorrow's slide asks how far that voice can carry.",
     skills: ['sampling judgment', 'representativeness', 'uncertainty communication'],
     concepts: ['nonresponse bias', 'sampling frames', 'weighting limits'],
     mediaTypes: ['table', 'chart', 'memo', 'audio'],
@@ -4582,7 +4582,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'missingness-inspector',
     judgmentType: 'multi',
     summary:
-      'A clinical risk report looks stable after dropping incomplete records, but missingness follows staffing, language access, and acuity.',
+      'A clinical risk report looks steady after an analyst trims the file, and the committee wants to shift attention toward treatment timing.',
     skills: ['missing data reasoning', 'bias detection', 'evidence qualification'],
     concepts: ['complete-case analysis', 'missing not at random', 'measurement opportunity'],
     mediaTypes: ['heatmap', 'table', 'memo', 'chart', 'audio'],
@@ -5783,7 +5783,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'geo-test-review',
     judgmentType: 'multi',
     summary:
-      'A regional media test appears to win, but market matching, spillover, seasonality, and operational changes keep the counterfactual unsettled.',
+      'A regional media test arrives just before a national buying window, with a confident lift estimate and a deadline to scale.',
     skills: ['causal design critique', 'geo experiment interpretation', 'claim qualification'],
     concepts: ['matched markets', 'interference', 'seasonality', 'counterfactual uncertainty'],
     mediaTypes: ['chart', 'table', 'timeline', 'memo', 'audio'],
@@ -6194,7 +6194,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'difference-in-differences-review',
     judgmentType: 'multi',
     summary:
-      'A policy brief claims a workforce pilot raised employment, but the comparison group was already drifting away before launch.',
+      'A workforce pilot briefing shows a promising post-launch gap, and the budget office wants a statewide recommendation.',
     skills: ['difference-in-differences judgment', 'comparison-group critique', 'causal claim wording'],
     concepts: ['parallel trends', 'event timing', 'placebo checks', 'comparison validity'],
     mediaTypes: ['chart', 'table', 'timeline', 'memo', 'audio'],
@@ -6591,7 +6591,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'regression-discontinuity-review',
     judgmentType: 'multi',
     summary:
-      'An eligibility cutoff seems to prove a rental-assistance navigator prevented evictions, until sorting around the threshold weakens the design.',
+      'A housing navigator pilot produces a sharp estimate near an eligibility line, and the agency wants to carry it into a budget request.',
     skills: ['regression-discontinuity judgment', 'manipulation diagnostics', 'causal claim qualification'],
     concepts: ['running variable', 'cutoff sorting', 'fuzzy compliance', 'bandwidth sensitivity'],
     mediaTypes: ['chart', 'table', 'timeline', 'memo', 'audio'],
@@ -8293,7 +8293,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'label-quality-audit',
     judgmentType: 'multi',
     summary:
-      'A moderation model beats the old rules engine on a vendor benchmark, but the benchmark labels may be measuring vendor behavior more than policy truth.',
+      'A trust-and-safety model clears a vendor benchmark before peak season, and leadership wants to turn high scores into automatic action.',
     skills: ['label quality audit', 'benchmark validity judgment', 'AI deployment governance'],
     concepts: ['ground truth construction', 'label noise', 'inter-rater reliability', 'policy drift'],
     mediaTypes: ['chart', 'table', 'memo', 'audio'],
@@ -8813,7 +8813,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'drift-response-review',
     judgmentType: 'multi',
     summary:
-      'An ETA model drift alarm is real, but the deeper failure is that monitoring is not connected to owned operational response.',
+      'An ETA model alarm appears while headline service levels still look acceptable, and no team is eager to slow the workflow.',
     skills: ['model monitoring judgment', 'operational ownership review', 'incident response design'],
     concepts: ['data drift', 'calibration decay', 'model governance', 'fallback policy'],
     mediaTypes: ['chart', 'table', 'timeline', 'memo', 'audio'],
@@ -9247,7 +9247,7 @@ export const CASE_DEFINITIONS = {
     caseType: 'stockout-forecast-review',
     judgmentType: 'multi',
     summary:
-      'A holiday replenishment model looks accurate enough to override planners, but store operations leave clues that demand may not be fully visible.',
+      'A holiday replenishment model reports strong backtest accuracy, and operations wants to let it override store planners next week.',
     skills: ['target definition review', 'censored demand reasoning', 'forecast validation'],
     concepts: ['stockout censoring', 'lost sales', 'availability bias', 'replenishment simulation'],
     mediaTypes: ['chart', 'table', 'timeline', 'memo', 'audio'],
@@ -10309,7 +10309,7 @@ const caseShells = [
     caseType: 'error-taxonomy',
     judgmentType: 'multi',
     summary:
-      'A benefits agency chatbot handles routine questions well, but evaluation logs show confident wrong answers on high-stakes claim situations.',
+      'A benefits agency chatbot demos smoothly before a filing surge, and the launch packet must decide what evidence is enough for live claimant use.',
     skills: ['AI evaluation', 'severity scoring', 'launch readiness'],
     concepts: ['evaluation sets', 'hallucination risk', 'escalation policy', 'retrieval coverage'],
     mediaTypes: ['transcript', 'rubric', 'memo', 'audio', 'table'],
@@ -10343,7 +10343,7 @@ const caseShells = [
     caseType: 'metric-critique',
     judgmentType: 'multi',
     summary:
-      'The benefits modernization program changes its executive metric, and the new dashboard may reward faster closure while hiding reopened cases and payment delay.',
+      'A modernization dashboard gets a cleaner headline metric, and leadership wants to use it as proof that service is improving.',
     skills: ['metric design', 'incentive reasoning', 'executive communication'],
     concepts: ['Goodhart-style behavior', 'leading indicators', 'metric definitions', 'balanced scorecards'],
     mediaTypes: ['table', 'memo', 'chart', 'audio'],
@@ -10360,7 +10360,7 @@ const caseShells = [
     caseType: 'sample-composition-check',
     judgmentType: 'multi',
     summary:
-      'A customer research survey appears decisive until response patterns reveal who never had a real chance to answer.',
+      "A customer survey produces a clean majority for a support redesign, and tomorrow's slide asks how far that voice can carry.",
     skills: ['sampling judgment', 'representativeness', 'uncertainty communication'],
     concepts: ['nonresponse bias', 'sampling frames', 'weighting limits'],
     mediaTypes: ['table', 'chart', 'memo', 'audio'],
@@ -10394,7 +10394,7 @@ const caseShells = [
     caseType: 'missingness-inspector',
     judgmentType: 'multi',
     summary:
-      'A clinical risk report looks stable after dropping incomplete records, but missingness follows staffing, language access, and acuity.',
+      'A clinical risk report looks steady after an analyst trims the file, and the committee wants to shift attention toward treatment timing.',
     skills: ['missing data reasoning', 'bias detection', 'evidence qualification'],
     concepts: ['complete-case analysis', 'missing not at random', 'measurement opportunity'],
     mediaTypes: ['heatmap', 'table', 'memo', 'chart'],
