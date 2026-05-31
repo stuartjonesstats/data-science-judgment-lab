@@ -14,7 +14,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title} | Data Science Judgment Lab`}>
+<BaseLayout title={`${entry.data.title} | Data Science Judgment Lab`} description={entry.data.summary}>
   <section class="case-shell-header">
     <div class="container case-header-grid">
       <div>

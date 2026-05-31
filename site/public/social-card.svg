@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Data Science Judgment Lab</title>
+  <desc id="desc">Social preview card for Data Science Judgment Lab.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071112"/>
+      <stop offset="0.55" stop-color="#050708"/>
+      <stop offset="1" stop-color="#1c0c09"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0v42" fill="none" stroke="#233235" stroke-opacity=".52" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity=".72"/>
+  <path d="M72 88h314l42 44h700v382H72z" fill="#111719" stroke="#d7a94a" stroke-width="6" stroke-linejoin="round" opacity=".96"/>
+  <path d="M72 132h1056" stroke="#2b3538" stroke-width="3"/>
+  <g transform="translate(92 182)">
+    <text x="0" y="0" fill="#dc674f" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="3">DATA SCIENCE JUDGMENT LAB</text>
+    <text x="0" y="92" fill="#eee8d7" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="900">Train data judgment</text>
+    <text x="0" y="176" fill="#eee8d7" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="900">like an investigation.</text>
+    <text x="0" y="258" fill="#9ea7a1" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">25 interactive cases on evidence and uncertainty.</text>
+    <text x="0" y="304" fill="#9ea7a1" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Causal claims | model risk | calibrated confidence</text>
+  </g>
+  <g transform="translate(824 302)">
+    <circle cx="128" cy="88" r="84" fill="#050708" fill-opacity=".76" stroke="#eee8d7" stroke-width="16"/>
+    <path d="M190 150l74 74" stroke="#dc674f" stroke-width="24" stroke-linecap="round"/>
+    <path d="M72 54h88M72 88h56M72 122h112" stroke="#56666a" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="146" cy="78" r="12" fill="#62b3ca"/>
+  </g>
+  <g transform="translate(92 548)" fill="none" stroke-width="3">
+    <rect width="212" height="42" rx="4" stroke="#56666a"/>
+    <rect x="228" width="166" height="42" rx="4" stroke="#56666a"/>
+    <rect x="410" width="190" height="42" rx="4" stroke="#56666a"/>
+    <text x="22" y="28" fill="#eee8d7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Evidence review</text>
+    <text x="250" y="28" fill="#eee8d7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Causality</text>
+    <text x="432" y="28" fill="#eee8d7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Model risk</text>
+  </g>
+</svg>

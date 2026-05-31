@@ -6,14 +6,20 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title,
-  description = 'A case-based lab for practicing data science judgment under uncertainty.',
+  description = 'Practice data science judgment with 25 interactive case investigations on evidence, uncertainty, causal claims, model risk, and calibrated confidence.',
+  image = '/social-card.png',
 } = Astro.props;
 
+const siteName = 'Data Science Judgment Lab';
 const githubUrl = 'https://github.com/stuartjonesstats/data-science-judgment-lab';
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const socialImageUrl = new URL(withBase(image), siteUrl).toString();
 ---
 
 <!doctype html>
@@ -23,7 +29,21 @@ const githubUrl = 'https://github.com/stuartjonesstats/data-science-judgment-lab
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#050708" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <GoogleAnalytics />
     <title>{title}</title>
   </head>
