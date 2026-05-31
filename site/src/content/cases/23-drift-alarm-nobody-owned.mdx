@@ -1,0 +1,35 @@
+---
+id: case-023
+slug: drift-alarm-nobody-owned
+title: The Drift Alarm Nobody Owned
+shortTitle: Drift Alarm
+set: operational-models
+sequence: 23
+status: active
+difficulty: advanced
+domain: Logistics ETA
+estimatedMinutes: 13
+caseType: drift-response-review
+judgmentType: multi
+summary: An ETA model drift alarm is real, but the deeper failure is that monitoring is not connected to owned operational response.
+skills:
+  - model monitoring judgment
+  - operational ownership review
+  - incident response design
+concepts:
+  - data drift
+  - calibration decay
+  - model governance
+  - fallback policy
+mediaTypes:
+  - chart
+  - table
+  - timeline
+  - memo
+  - audio
+scoringProfile: cbm-v1
+---
+
+import InvestigationWorkspace from '../../components/InvestigationWorkspace.jsx';
+
+<InvestigationWorkspace caseId="case-023" client:load />

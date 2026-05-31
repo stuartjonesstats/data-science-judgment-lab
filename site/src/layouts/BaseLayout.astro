@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import { withBase } from '../lib/paths.js';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'A case-based lab for practicing data science judgment under uncertainty.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050708" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href={withBase('/')}>Data Science Judgment Lab</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href={withBase('/cases/')}>Cases</a>
+          <a href={withBase('/finder/')}>Finder</a>
+          <a href={withBase('/pathways/')}>Pathways</a>
+          <a href={withBase('/diagnostic/')}>Intake</a>
+          <a href={withBase('/completion/')}>Profile</a>
+          <a href={withBase('/calibration/')}>Calibration</a>
+          <a href={withBase('/about/')}>About</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <p>Local-first case lab for reasoning from evidence under uncertainty.</p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href={withBase('/cases/')}>Cases</a>
+          <a href={withBase('/finder/')}>Finder</a>
+          <a href={withBase('/pathways/')}>Pathways</a>
+          <a href={withBase('/completion/')}>Profile</a>
+          <a href={withBase('/calibration/')}>Calibration</a>
+          <a href={withBase('/methods/')}>Methods</a>
+          <a href={withBase('/instructor/')}>Instructor</a>
+          <a href={withBase('/about/')}>About</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

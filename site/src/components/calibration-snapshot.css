@@ -1,0 +1,66 @@
+.snapshot {
+  background:
+    linear-gradient(180deg, rgba(215, 169, 74, 0.04), transparent 100px),
+    var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  min-width: 0;
+  padding: 18px;
+}
+
+.snapshot__header {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.metric-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric {
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  display: grid;
+  gap: 4px 8px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 86px;
+  padding: 11px;
+}
+
+.metric svg {
+  color: var(--amber);
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.metric strong {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.45rem;
+  grid-column: 1 / -1;
+  line-height: 1;
+}
+
+.snapshot__note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 12px 0 0;
+}
+
+@media (max-width: 680px) {
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+}

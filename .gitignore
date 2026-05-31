@@ -1,0 +1,15 @@
+.DS_Store
+.env
+.env.*
+.env.rtf
+
+site/node_modules/
+site/dist/
+site/.astro/
+site/.playwright-cli/
+site/output/
+site/tmp/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

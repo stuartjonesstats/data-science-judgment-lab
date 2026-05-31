@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalibrationSnapshot from '../components/CalibrationSnapshot.jsx';
+---
+
+<BaseLayout title="Calibration | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Calibration</p>
+        <h1>Your confidence record</h1>
+        <p class="lede">
+          The lab tracks whether confidence fits evidence strength. A
+          high-confidence wrong call is treated as a different signal from a
+          low-confidence miss.
+        </p>
+      </div>
+      <CalibrationSnapshot client:load />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>How To Read This Page</h2>
+      <p>
+        The calibration score is a mirror, not a verdict. High scores suggest
+        that your confidence was roughly aligned with the evidence in completed
+        cases. High-confidence misses are the most useful learning events
+        because they reveal where a tidy story felt stronger than the evidence.
+      </p>
+      <p>
+        Low confidence is not failure. In many data science settings, the most
+        responsible answer is a bounded recommendation with explicit uncertainty.
+        The goal is to become appropriately confident, not permanently cautious.
+      </p>
+
+      <h2>What To Do After A Miss</h2>
+      <ul>
+        <li>Reopen the case replay and compare your cited evidence with the expert reconstruction.</li>
+        <li>Identify whether the miss came from a metric definition, causal leap, model-use assumption, or operational constraint.</li>
+        <li>Write the sentence you would use in a real meeting to hedge the claim without becoming vague.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

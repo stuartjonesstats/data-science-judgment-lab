@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseDashboard from '../components/CaseDashboard.jsx';
+import { withBase } from '../lib/paths.js';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+---
+
+<BaseLayout title="Data Science Judgment Lab">
+  <section class="hero home-hero">
+    <div class="container home-hero-grid">
+      <div class="home-hero-copy">
+        <p class="eyebrow">Data Science Judgment Lab</p>
+        <h1>Train data judgment like an investigation.</h1>
+        <p class="lede">
+          This is a 25-case room for practicing the hard part of data science:
+          deciding what messy evidence can support, what it cannot support, and
+          how confident you should be when pressure is in the room.
+        </p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button" href={withBase('/diagnostic/')}>Start case intake</a>
+          <a class="button secondary" href={withBase('/finder/')}>Find a case</a>
+          <a class="button secondary" href={withBase('/pathways/')}>Choose a pathway</a>
+        </div>
+      </div>
+
+      <aside class="orientation-dossier" aria-label="Lab orientation">
+        <p class="eyebrow">Orientation file</p>
+        <h2>What you are here to practice</h2>
+        <div class="dossier-list">
+          <div>
+            <strong>Evidence discipline</strong>
+            <span>Separate signal, context, narrative, and loose ends.</span>
+          </div>
+          <div>
+            <strong>Calibrated confidence</strong>
+            <span>Treat high-confidence misses as the most useful feedback.</span>
+          </div>
+          <div>
+            <strong>Decision judgment</strong>
+            <span>Make bounded recommendations when the evidence is incomplete.</span>
+          </div>
+          <div>
+            <strong>Case replay</strong>
+            <span>Compare your reconstruction with the expert record.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="container home-brief-grid" aria-label="Lab brief">
+      <article>
+        <p class="eyebrow">Purpose</p>
+        <h2>Judgment, not trivia</h2>
+        <p>
+          The cases surface the habits senior analysts need: metric humility,
+          causal caution, operational risk, fairness burden, and uncertainty
+          communication.
+        </p>
+      </article>
+      <article>
+        <p class="eyebrow">Method</p>
+        <h2>
+          <a href={withBase('/methods/')}>Productive struggle</a>
+        </h2>
+        <p>
+          You work the evidence before the explanation appears. The struggle is
+          the point: tempting wrong stories become visible enough to learn from.
+        </p>
+      </article>
+      <article>
+        <p class="eyebrow">Record</p>
+        <h2>
+          <a href={withBase('/completion/')}>Calibration over score</a>
+        </h2>
+        <p>
+          Completion creates a local judgment record after reviewed cases. It is
+          a learning artifact, not a proctored credential.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CaseDashboard client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>

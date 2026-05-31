@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseFinder from '../components/CaseFinder.jsx';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+---
+
+<BaseLayout title="Case Finder | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Case finder</p>
+      <h1>Find the right file without naming the trap.</h1>
+      <p class="lede">
+        Filter by broad issue, setting, evidence format, difficulty, and local
+        progress. Precise concepts stay out of view until the case replay.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CaseFinder client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>

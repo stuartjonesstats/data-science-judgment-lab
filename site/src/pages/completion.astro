@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CompletionRecord from '../components/CompletionRecord.jsx';
+import JudgmentProfile from '../components/JudgmentProfile.jsx';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+---
+
+<BaseLayout title="Profile | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Profile and completion</p>
+      <h1>A judgment record, not a trophy for speed.</h1>
+      <p class="lede">
+        Use the profile while you are still in progress. Completion is earned by
+        making decisions, assigning confidence, and reviewing case replays across
+        the library.
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <JudgmentProfile client:load cases={cases} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <CompletionRecord client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>

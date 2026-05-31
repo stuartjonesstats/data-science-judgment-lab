@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InstructorGuide from '../components/InstructorGuide.jsx';
+import { CORE_CASES } from '../lib/cases.js';
+
+const cases = CORE_CASES.map((caseItem) => ({
+  id: caseItem.id,
+  slug: caseItem.slug,
+  title: caseItem.title,
+  sequence: caseItem.sequence,
+  difficulty: caseItem.difficulty,
+  domain: caseItem.domain,
+  estimatedMinutes: caseItem.estimatedMinutes,
+  skills: caseItem.skills,
+  concepts: caseItem.concepts,
+  mediaTypes: caseItem.mediaTypes,
+  keyEvidenceIds: caseItem.keyEvidenceIds || [],
+  evidence: (caseItem.evidence || []).map((evidence) => ({
+    id: evidence.id,
+    title: evidence.title,
+    type: evidence.type,
+    reliability: evidence.reliability,
+  })),
+  hypotheses: caseItem.hypotheses || [],
+  decisions: caseItem.decisions || [],
+  replay: {
+    trap: caseItem.replay?.trap,
+    transfer: caseItem.replay?.transfer,
+  },
+}));
+---
+
+<BaseLayout title="Instructor Mode | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Instructor mode</p>
+      <h1>Facilitate without flattening the investigation.</h1>
+      <p class="lede">
+        This view exposes concept targets, answer maps, key evidence, and
+        facilitation focus for each file. Keep it out of the learner path until
+        after decisions have been submitted.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InstructorGuide client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>

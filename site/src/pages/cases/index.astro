@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseDashboard from '../../components/CaseDashboard.jsx';
+import { EXPANSION_PACKS } from '../../lib/expansion-packs.js';
+import { withBase } from '../../lib/paths.js';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+
+---
+
+<BaseLayout title="Cases | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Evidence docket</p>
+      <h1>Case library</h1>
+      <p class="lede">
+        Work the full 25-case suite in order, or return through focused routes
+        when you want concentrated practice with measurement, causal design,
+        operational models, or AI risk.
+      </p>
+      <div class="hero-actions">
+        <a class="button secondary" href={withBase('/finder/')}>Filter by issue</a>
+        <a class="button secondary" href={withBase('/pathways/')}>Browse pathways</a>
+        <a class="button secondary" href={withBase('/diagnostic/')}>Start intake</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <CaseDashboard client:load cases={cases} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Focused routes</p>
+          <h2>Case sequences for return visits</h2>
+        </div>
+        <a class="button secondary button--compact" href={withBase('/pathways/')}>
+          View pathways
+        </a>
+      </div>
+      <div class="pack-grid">
+        {EXPANSION_PACKS.map((route) => (
+          <article class={`pack-card pack-card--${route.status}`} id={route.id}>
+            <div class="pack-card__topline">
+              <span>Focused route</span>
+              <strong>{route.cases.length} cases</strong>
+            </div>
+            <h3>{route.title}</h3>
+            <p>{route.purpose}</p>
+            {route.buildNote ? <p class="pack-card__note">{route.buildNote}</p> : null}
+            <ol class="pack-case-list">
+              {route.cases.map((caseItem) => (
+                <li>
+                  {caseItem.status === 'active' ? (
+                    <a href={withBase(`/cases/${caseItem.slug}/`)}>
+                      Case {String(caseItem.sequence).padStart(2, '0')}: {caseItem.title}
+                    </a>
+                  ) : (
+                    <span>
+                      Case {String(caseItem.sequence).padStart(2, '0')}: {caseItem.title}
+                    </span>
+                  )}
+                  <em>{caseItem.teaser || `${caseItem.domain} evidence file with competing signals.`}</em>
+                </li>
+              ))}
+            </ol>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

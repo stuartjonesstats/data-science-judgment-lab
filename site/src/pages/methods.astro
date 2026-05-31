@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Methods | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Methods</p>
+      <h1>Why the lab asks for judgment before explanation.</h1>
+      <p class="lede">
+        Data science decisions often fail between the method and the meeting:
+        metric definitions shift, comparison groups wobble, model scores hide
+        workflow risk, and pressure turns weak evidence into a confident story.
+        The lab is designed to make those judgment moments practiceable.
+      </p>
+
+      <h2>How A Case Works</h2>
+      <p>
+        Each case starts as an incomplete evidence scene rather than a lesson
+        summary. Learners inspect artifacts, form a working theory, decide what
+        they would do, and state confidence before the expert replay appears.
+        That order matters because the first answer exposes the learner's
+        current judgment habits.
+      </p>
+      <p>
+        The interaction is deliberately more than reading comprehension.
+        Learners open audio notes, inspect charts, sort artifacts by evidentiary
+        role, cite the evidence they would rely on, reconstruct what changed,
+        and write the caveat they would use in a real meeting. The replay then
+        compares that reconstruction with the expert record.
+      </p>
+
+      <h2>Why Productive Struggle Fits Data Science</h2>
+      <p>
+        This is productive struggle, not hidden-answer guessing. The cases are
+        written so plausible but insufficient stories compete with quieter
+        evidence. Failure is useful when the replay helps learners identify why
+        a tempting interpretation felt stronger than it was.
+      </p>
+      <p>
+        The design also uses desirable difficulty: learners must retrieve prior
+        ideas, discriminate among similar risks, and delay explanation until
+        after they have committed to a position. The aim is transfer to real
+        analytical work, where nobody announces the topic label before the
+        decision has to be made.
+      </p>
+
+      <h2>What Data Science Judgment Means Here</h2>
+      <p>
+        Data science judgment is the ability to connect method, evidence, and
+        context without overclaiming. It includes knowing when a dashboard is
+        measuring a changed construct, when a causal claim outruns its design,
+        when a model score ignores deployment risk, and when a technically true
+        statement would mislead a decision-maker.
+      </p>
+      <p>
+        The lab treats judgment as a learnable practice. It does not ask
+        learners to memorize trap names. It asks them to notice what the
+        evidence can bear, where uncertainty remains, and how confidence should
+        change when pressure, incentives, or missing context enter the room.
+      </p>
+
+      <h2>Certainty-Based Marking</h2>
+      <p>
+        Constrained decisions use certainty-based marking. Correct answers earn
+        more when confidence is high. Incorrect answers lose more when
+        confidence is high. Low confidence is not punished for its own sake; it
+        can be the responsible choice when the evidence is genuinely thin. The
+        goal is calibration: knowing when the evidence justifies confidence and
+        when it does not.
+      </p>
+      <table class="evidence-table">
+        <thead>
+          <tr>
+            <th>Outcome</th>
+            <th>Low</th>
+            <th>Medium</th>
+            <th>High</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Correct</td>
+            <td>+1</td>
+            <td>+2</td>
+            <td>+3</td>
+          </tr>
+          <tr>
+            <td>Partial</td>
+            <td>0</td>
+            <td>+1</td>
+            <td>+1</td>
+          </tr>
+          <tr>
+            <td>Incorrect</td>
+            <td>0</td>
+            <td>-1</td>
+            <td>-3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Research Base</h2>
+      <p>
+        The lab is not a formal psychometric instrument. It borrows from
+        learning-science ideas that fit applied data science judgment: productive
+        failure before consolidation, desirable difficulty, retrieval practice,
+        and confidence calibration.
+      </p>
+      <ul class="source-list">
+        <li>
+          Productive failure: Manu Kapur’s work on learning from complex,
+          ill-structured problem solving before consolidation.
+          <a href="https://www.tandfonline.com/doi/abs/10.1080/07370000802212669">Kapur, 2008</a>
+        </li>
+        <li>
+          Desirable difficulties and retrieval as learning events.
+          <a href="https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/07/RBjork_inpress.pdf">Bjork, 2013</a>
+        </li>
+        <li>
+          Testing as a pedagogical tool rather than only assessment.
+          <a href="https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/11/ra_kroll_2015.pdf">Bjork &amp; Kroll, 2015</a>
+        </li>
+        <li>
+          Certainty-based marking as implemented in Moodle: learners report a
+          low, medium, or high certainty level after each answer.
+          <a href="https://docs.moodle.org/502/en/Using_certainty-based_marking">MoodleDocs CBM</a>
+        </li>
+        <li>
+          Statistical humility in data claims: the American Statistical
+          Association’s guidance on interpreting p-values and evidence.
+          <a href="https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf">ASA p-value statement</a>
+        </li>
+        <li>
+          Data acumen as a core undergraduate data science outcome.
+          <a href="https://www.nationalacademies.org/read/25104/chapter/4">National Academies, 2018</a>
+        </li>
+      </ul>
+
+      <h2>Scoring Limits</h2>
+      <p>
+        Static scoring can evaluate constrained decisions and confidence, but it
+        should not pretend to fully grade open-ended professional judgment. The
+        written rationale and reconstruction fields are part of the learning
+        record and replay, not an automated essay score.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

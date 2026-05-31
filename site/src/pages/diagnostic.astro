@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DiagnosticEntry from '../components/DiagnosticEntry.jsx';
+import { withBase } from '../lib/paths.js';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+---
+
+<BaseLayout title="Case Intake | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Case intake</p>
+      <h1>Start with a short routing interview.</h1>
+      <p class="lede">
+        Answer a few non-spoiler prompts and the lab will recommend a pathway.
+        The recommendation is only a starting route; every case remains open.
+      </p>
+      <div class="hero-actions">
+        <a class="button secondary" href={withBase('/pathways/')}>Browse all pathways</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <DiagnosticEntry client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PathwayBrowser from '../components/PathwayBrowser.jsx';
+import { withBase } from '../lib/paths.js';
+
+const cases = (await getCollection('cases'))
+  .sort((a, b) => a.data.sequence - b.data.sequence)
+  .map((entry) => ({
+    id: entry.data.id,
+    slug: entry.id.replace(/^\d+-/, ''),
+    title: entry.data.title,
+    sequence: entry.data.sequence,
+    status: entry.data.status,
+    difficulty: entry.data.difficulty,
+    domain: entry.data.domain,
+    estimatedMinutes: entry.data.estimatedMinutes,
+    summary: entry.data.summary,
+    skills: entry.data.skills,
+    mediaTypes: entry.data.mediaTypes,
+  }));
+---
+
+<BaseLayout title="Pathways | Data Science Judgment Lab">
+  <section class="section">
+    <div class="container prose">
+      <p class="eyebrow">Pathways</p>
+      <h1>Choose a route through the case room.</h1>
+      <p class="lede">
+        Each pathway is a repeat-visit sequence through the same case library:
+        focused enough for a workshop, open enough for independent exploration.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href={withBase('/diagnostic/')}>Start with intake</a>
+        <a class="button secondary" href={withBase('/finder/')}>Open finder</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <PathwayBrowser client:load cases={cases} />
+    </div>
+  </section>
+</BaseLayout>
